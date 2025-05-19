@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noumi Goal Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f6fc;
+      padding: 20px;
+      color: #3e3364;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    .page {
+      max-width: 400px;
+      margin: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .goal {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .goal.selected {
+      background: #e5dbf2;
+    }
+    .primary {
+      width: 100%;
+      background: #4c2e84;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 24px;
+      font-size: 16px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+    .card.purple {
+      background: #4c2e84;
+      color: white;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .card.purple .circle {
+      background: white;
+      color: #4c2e84;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card.white .label {
+      font-weight: bold;
+    }
+    .bar {
+      background: #eee;
+      border-radius: 8px;
+      height: 8px;
+      margin: 10px 0;
+      position: relative;
+    }
+    .fill {
+      background: #4c2e84;
+      height: 100%;
+      border-radius: 8px;
+    }
+    .bar-labels {
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .card.tip {
+      background: #e0d3f4;
+      font-size: 14px;
+    }
+    .grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+    .subbtn {
+      background: white;
+      border: 1px solid #4c2e84;
+      color: #4c2e84;
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .bubble {
+      background: #4c2e84;
+      color: white;
+      font-size: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page 1 -->
+  <div id="page1" class="page">
+    <h2>What's your goal?</h2>
+    <div class="grid">
+      <button class="goal">💳 Pay off Credit Card</button>
+      <button class="goal selected">✈️ Travel Fund</button>
+      <button class="goal">🏠 Buy a Home</button>
+      <button class="goal">🚗 Buy a Car</button>
+      <button class="goal">💰 Emergency Fund</button>
+      <button class="goal">🎓 Student Loans</button>
+      <button class="goal">📈 Investing</button>
+      <button class="goal">✏️ Custom Goal</button>
+    </div>
+    <button class="primary" onclick="goToDashboard()">Set Your Goal</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div id="page2" class="page hidden">
+    <p class="greeting">Good morning,</p>
+    <h2>You got this, Maya!</h2>
+
+    <div class="card purple">
+      <div class="circle">65%</div>
+      <div>
+        <strong>Your weekly goal is almost complete</strong><br>
+        <small>Save $35 to close the circle</small>
+      </div>
+    </div>
+
+    <div class="card white">
+      <div class="label">Spending</div>
+      <div class="bar">
+        <div class="fill" style="width:75%"></div>
+      </div>
+      <div class="bar-labels">$2402 <span>of $3200</span></div>
+    </div>
+
+    <div class="card tip">
+      💡 You could save $35 this week by reducing dining out.
+    </div>
+
+    <div class="grid grid-2">
+      <button class="subbtn">➕ Add New Goal</button>
+      <button class="subbtn">😀 Log Emotions</button>
+    </div>
+
+    <div class="footer">
+      <button class="bubble">n</button>
+      <div>Ask Noumi</div>
+    </div>
+  </div>
+
+  <script>
+    function goToDashboard() {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
